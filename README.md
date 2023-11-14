@@ -1,7 +1,6 @@
 # Turborepo starter
 
 This is an official starter Turborepo.
-Teste
 
 ## Using this example
 
