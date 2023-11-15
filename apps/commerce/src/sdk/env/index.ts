@@ -7,7 +7,6 @@ export const env = createEnv({
     SHOPIFY_STORE_DOMAIN: z.string(),
     SHOPIFY_STOREFRONT_ACCESS_TOKEN: z.string()
   },
-  client: {},
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
     SHOPIFY_STORE_DOMAIN: process.env.SHOPIFY_STORE_DOMAIN,

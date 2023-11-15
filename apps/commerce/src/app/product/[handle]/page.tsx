@@ -78,7 +78,7 @@ export default async function ProductPage({ params }: Props) {
           __html: JSON.stringify(productJsonLd)
         }}
       />
-      <div>{product.title}</div>
+      <div className="container flex flex-col gap-6">{product.title}</div>
     </>
   );
 }
