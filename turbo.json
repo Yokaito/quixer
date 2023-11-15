@@ -8,6 +8,8 @@
     },
     "lint": {},
     "test": {},
+    "start": {},
+    "lhci": {},
     "dev": {
       "cache": false,
       "persistent": true
