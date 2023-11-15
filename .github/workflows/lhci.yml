@@ -1,4 +1,4 @@
-name: Tests | Quixer
+name: Lighthouse | Quixer
 on: pull_request
 
 # Cancel in progress workflows on pull_requests.
@@ -7,12 +7,31 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+env:
+  # -- SHOPIFY CONFIG -- #
+  SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ secrets.SHOPIFY_STOREFRONT_ACCESS_TOKEN }}
+  SHOPIFY_STORE_DOMAIN: ${{ secrets.SHOPIFY_STORE_DOMAIN }}
+  # -- SHOPIFY CONFIG -- #
+
+  # -- LHCI CONFIG -- #
+  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+  # -- LHCI CONFIG -- #
+
+  # -- TURBO CACHE -- #
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  TURBO_REMOTE_ONLY: true
+  # -- TURBO CACHE -- #
+
 jobs:
-  test:
+  lhci:
+    name: Lighthouse
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
       - name: Set node version
         uses: actions/setup-node@v3
         with:
@@ -31,5 +50,11 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: pnpm install --no-frozen-lockfile
-      - name: Run tests
-        run: pnpm test
+
+      - name: pnpm build and start
+        run: |
+          pnpm build --filter=commerce
+      - name: run Lighthouse CI
+        run: |
+          pnpm install -g @lhci/cli@0.12.x
+          pnpm lhci --filter=commerce
