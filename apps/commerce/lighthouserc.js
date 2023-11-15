@@ -2,11 +2,9 @@ const { lighthouse: lhConfig } = require('./store.config');
 
 module.exports = {
   ci: {
-    urls: Object.values(lhConfig.pages),
-    server: lhConfig.server,
-    startServerCommand: lhConfig.startServerCommand,
     collect: {
-      url: Object.values(lhConfig.pages).map((url) => `${lhConfig.server}${url}`)
+      url: Object.values(lhConfig.pages).map((url) => `${lhConfig.server}${url}`),
+      startServerCommand: lhConfig.startServerCommand
     },
     upload: {
       target: 'temporary-public-storage'
