@@ -1,4 +1,4 @@
-name: test
+name: Tests | Quixer
 on: pull_request
 
 # Cancel in progress workflows on pull_requests.

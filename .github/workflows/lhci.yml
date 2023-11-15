@@ -1,4 +1,4 @@
-name: Lighthouse
+name: Lighthouse | Quixer
 on: pull_request
 
 # Cancel in progress workflows on pull_requests.
@@ -6,6 +6,11 @@ on: pull_request
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
+
+env:
+  SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ secrets.SHOPIFY_STOREFRONT_ACCESS_TOKEN }}
+  SHOPIFY_STORE_DOMAIN: ${{ secrets.SHOPIFY_STORE_DOMAIN }}
+  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
 jobs:
   lhci:
@@ -43,7 +48,3 @@ jobs:
         run: |
           pnpm install -g @lhci/cli@0.12.x
           pnpm lhci --filter=commerce
-        env:
-          SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ secrets.SHOPIFY_STOREFRONT_ACCESS_TOKEN }}
-          SHOPIFY_STORE_DOMAIN: ${{ secrets.SHOPIFY_STORE_DOMAIN }}
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
