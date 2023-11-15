@@ -20,6 +20,9 @@
     "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@builder.io/dev-tools": "^0.2.2",
+    "@builder.io/react": "^3.1.1",
+    "@builder.io/sdk": "^2.1.1",
     "@t3-oss/env-nextjs": "^0.7.1",
     "clsx": "^2.0.0",
     "next": "14.0.3-canary.9",
