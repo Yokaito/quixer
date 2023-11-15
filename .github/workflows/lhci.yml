@@ -43,7 +43,6 @@ jobs:
       - name: pnpm build and start
         run: |
           pnpm build --filter=commerce
-          pnpm start --filter=commerce
       - name: run Lighthouse CI
         run: |
           pnpm install -g @lhci/cli@0.12.x
