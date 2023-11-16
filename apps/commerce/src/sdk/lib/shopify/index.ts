@@ -1,47 +1,17 @@
 import env from '@/sdk/env';
-import { HIDDEN_PRODUCT_TAG, SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from '../constants';
+import { SHOPIFY_GRAPHQL_API_ENDPOINT, TAGS } from '../constants';
 import { isShopifyError } from '../type-guards';
 import { ensureStartsWith } from '../utils';
-import { getProductQuery } from './queries/product';
-import { Connection, Image, Product, ShopifyProduct, ShopifyProductOperation } from './types';
-
-type ExtractVariables<T> = T extends { variables: object } ? T['variables'] : never;
+import { Product } from './fragments';
+import { ShopifyProductOperation, getProductQuery } from './queries';
+import { reshapeProduct } from './reshapes';
+import { ExtractVariables } from './types';
 
 const domain = env.SHOPIFY_STORE_DOMAIN
   ? ensureStartsWith(env.SHOPIFY_STORE_DOMAIN, 'https://')
   : '';
 const endpoint = `${domain}${SHOPIFY_GRAPHQL_API_ENDPOINT}`;
 const key = env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
-
-const removeEdgesAndNodes = (array: Connection<any>) => {
-  return array.edges.map((edge) => edge?.node);
-};
-
-const reshapeImages = (images: Connection<Image>, productTitle: string) => {
-  const flattened = removeEdgesAndNodes(images);
-
-  return flattened.map((image) => {
-    const filename = image.url.match(/.*\/(.*)\..*/)[1];
-    return {
-      ...image,
-      altText: image.altText || `${productTitle} - ${filename}`
-    };
-  });
-};
-
-const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean = true) => {
-  if (!product || (filterHiddenProducts && product.tags.includes(HIDDEN_PRODUCT_TAG))) {
-    return undefined;
-  }
-
-  const { images, variants, ...rest } = product;
-
-  return {
-    ...rest,
-    images: reshapeImages(images, product.title),
-    variants: removeEdgesAndNodes(variants)
-  };
-};
 
 export async function shopifyFetch<T>({
   cache = 'force-cache',
