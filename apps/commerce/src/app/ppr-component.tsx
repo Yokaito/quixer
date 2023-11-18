@@ -1,4 +1,4 @@
-import { api } from '@/sdk/lib/trpc/server';
+import { getApiCaller } from '@/sdk/lib/trpc/server';
 
 export const PPRComponent = async () => {
   // add timeout to simulate slow network await api.hello.hello();
@@ -7,12 +7,12 @@ export const PPRComponent = async () => {
   }> => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(api.hello.hello());
-      }, 3000);
+        resolve(getApiCaller().hello.hello());
+      }, 2000);
     });
   };
 
-  return <span>{(await data()).greeting} PPR Component Delay 1s</span>;
+  return <span>{(await data()).greeting} PPR Component Delay 2s</span>;
 };
 
 export default PPRComponent;
