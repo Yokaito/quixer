@@ -11,5 +11,12 @@
       "mode": "auto"
     }
   ],
-  "cSpell.words": ["Quixer", "shopify"]
+  "cSpell.words": [
+    "Quixer",
+    "shopify",
+    "superjson",
+    "trpc",
+    "TRPC",
+    "typesafety"
+  ]
 }
