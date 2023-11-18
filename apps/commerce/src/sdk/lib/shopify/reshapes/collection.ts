@@ -11,7 +11,7 @@ export const reshapeCollection = (collection: ShopifyCollection): Collection | u
   };
 };
 
-export const reshapeCollections = (collections: ShopifyCollection[]) => {
+export const reshapeCollections = (collections: ShopifyCollection[]): Collection[] => {
   const reshapedCollections = [];
 
   for (const collection of collections) {

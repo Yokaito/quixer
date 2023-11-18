@@ -1,9 +1,12 @@
 import { HIDDEN_PRODUCT_TAG } from '../../constants';
-import { ShopifyProduct } from '../fragments';
+import { Product, ShopifyProduct } from '../fragments';
 import { removeEdgesAndNodes } from './edges';
 import { reshapeImages } from './image';
 
-export const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean = true) => {
+export const reshapeProduct = (
+  product: ShopifyProduct,
+  filterHiddenProducts: boolean = true
+): Product | undefined => {
   if (!product || (filterHiddenProducts && product.tags.includes(HIDDEN_PRODUCT_TAG))) {
     return undefined;
   }
@@ -17,7 +20,7 @@ export const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: bo
   };
 };
 
-export const reshapeProducts = (products: ShopifyProduct[]) => {
+export const reshapeProducts = (products: ShopifyProduct[]): Product[] => {
   const reshapedProducts = [];
 
   for (const product of products) {
