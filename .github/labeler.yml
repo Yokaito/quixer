@@ -1,0 +1,9 @@
+---
+"Area: Website":
+  - any: ["apps/commerce/**/*"]
+
+"Area: Packages UI":
+  - any: ["packages/ui/**/*"]
+
+"Area: Packages Server":
+  - any: ["packages/server/**/*"]
