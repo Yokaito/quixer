@@ -1,5 +1,5 @@
 ---
-"Area: Website":
+"Area: Commerce":
   - any: ["apps/commerce/**/*"]
 
 "Area: Packages UI":
