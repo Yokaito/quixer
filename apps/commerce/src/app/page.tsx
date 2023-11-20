@@ -1,10 +1,10 @@
-import { getApiCaller } from '@/sdk/lib/trpc/server';
+import { api } from '@/sdk/lib/trpc/server';
 import { Suspense } from 'react';
 import { ClientComponent } from './client-component';
 import { PPRComponent } from './ppr-component';
 
 export default async function HomePage() {
-  const hello = await getApiCaller().hello.hello();
+  const hello = await api.hello.hello();
 
   return (
     <div className="flex min-h-screen flex-col items-center p-24">
