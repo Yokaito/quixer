@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2](https://github.com/Yokaito/quixer/compare/v0.0.1...v0.0.2) (2023-11-20)
+
+### Chores
+
+- **server:** make package server public ([7174ea6](https://github.com/Yokaito/quixer/commit/7174ea63819e8ada745f0f3c91e6b3f171f1f8cc))
+
 ## 0.0.1 (2023-11-20)
 
 ### Features
