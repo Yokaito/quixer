@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.4 (2023-11-20)
+
+### Bug Fixes
+
+- **labeler:** wrong name in commerce files ([b8e9605](https://github.com/Yokaito/quixer/commit/b8e96056f2b9dab982b8ba77c37b80749b4821f3))
+
+### Chores
+
+- **docs:** add code of conduct and change readme ([f1e1ace](https://github.com/Yokaito/quixer/commit/f1e1acecbf3a1427fa41be07a876d1fcf19da3b2))
+
 ## [0.0.3](https://github.com/Yokaito/quixer/compare/v0.0.2...v0.0.3) (2023-11-20)
 
 ### Chores

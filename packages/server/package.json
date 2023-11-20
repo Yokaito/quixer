@@ -1,6 +1,6 @@
 {
   "name": "@quixer/server",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A lightweight, framework agnostic api to use in e-commerce",
   "author": "Guilherme Fontes <gui.fontes.amorim@gmail.com> (@guifontes)",
   "main": "./index.ts",
