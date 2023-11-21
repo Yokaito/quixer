@@ -1,4 +1,3 @@
-import { HIDDEN_PRODUCT_TAG } from '@/sdk/lib/constants';
 import { api } from '@/sdk/lib/trpc/server';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
@@ -21,18 +20,17 @@ export async function generateMetadata({
   if (!product) return notFound();
 
   const { url, width, height, altText: alt = product.title } = product.featuredImage || {};
-  const indexable = !product.tags.includes(HIDDEN_PRODUCT_TAG);
 
   return {
     metadataBase: new URL(`/product/${product.handle}`, 'http://localhost:3000'),
     title: product.seo.title || product.title,
     description: product.seo.description || product.description,
     robots: {
-      index: indexable,
-      follow: indexable,
+      index: true,
+      follow: true,
       googleBot: {
-        index: indexable,
-        follow: indexable
+        index: true,
+        follow: true
       }
     },
     openGraph: url
