@@ -12,6 +12,7 @@ import { initTRPC } from "@trpc/server";
 import { type NextRequest } from "next/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
+import { ShopifyClient } from "./integrations/shopify";
 
 /**
  * 1. CONTEXT
@@ -21,7 +22,16 @@ import { ZodError } from "zod";
  * These allow you to access things when processing a request, like the database, the session, etc.
  */
 
-interface CreateContextOptions {
+type Integrations = {
+  integrations?: {
+    shopify?: {
+      // @description The fetch function to use for the Shopify API
+      client: ShopifyClient;
+    };
+  };
+};
+
+interface CreateContextOptions extends Integrations {
   headers: Headers;
 }
 
@@ -39,9 +49,10 @@ export const createInnerTRPCContext = (
   opts: CreateContextOptions
 ): {
   headers: Headers;
-} => {
+} & Integrations => {
   return {
     headers: opts.headers,
+    integrations: opts.integrations,
   };
 };
 
@@ -53,13 +64,15 @@ export const createInnerTRPCContext = (
  */
 export const createTRPCContext = (opts: {
   req: NextRequest;
+  integrations?: Integrations["integrations"];
 }): {
   headers: Headers;
-} => {
+} & Integrations => {
   // Fetch stuff that depends on the request
 
   return createInnerTRPCContext({
     headers: opts.req.headers,
+    integrations: opts.integrations,
   });
 };
 

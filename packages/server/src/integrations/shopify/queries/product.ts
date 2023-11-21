@@ -1,7 +1,8 @@
-import { ShopifyProduct, productFragment } from '../fragments';
+import { Product } from "../../../utils/types/product";
+import { productFragment } from "../fragments";
 
 export type ShopifyProductOperation = {
-  data: { product: ShopifyProduct };
+  data: { product: Product };
   variables: {
     handle: string;
   };

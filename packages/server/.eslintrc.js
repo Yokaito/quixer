@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["custom/next"],
+  extends: ["next", "prettier", "next/core-web-vitals"],
 };
