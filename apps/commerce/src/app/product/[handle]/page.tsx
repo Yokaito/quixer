@@ -1,5 +1,5 @@
 import { HIDDEN_PRODUCT_TAG } from '@/sdk/lib/constants';
-import { getProduct } from '@/sdk/lib/shopify';
+import { api } from '@/sdk/lib/trpc/server';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -14,7 +14,9 @@ export async function generateMetadata({
 }: {
   params: { handle: string };
 }): Promise<Metadata> {
-  const product = await getProduct(params.handle);
+  const product = await api.product.getProductByHandle({
+    handle: params.handle
+  });
 
   if (!product) return notFound();
 
@@ -49,7 +51,9 @@ export async function generateMetadata({
 }
 
 export default async function ProductPage({ params }: Props) {
-  const product = await getProduct(params.handle);
+  const product = await api.product.getProductByHandle({
+    handle: params.handle
+  });
 
   if (!product) return notFound();
 
