@@ -1,7 +1,8 @@
 import 'server-only'; // Make sure you can't import this on client
 
+import env from '@/sdk/env';
 import { headers } from 'next/headers';
-import { appRouter, createTRPCContext } from 'server';
+import { appRouter, createTRPCContext, integrations } from 'server';
 
 type Caller = ReturnType<typeof appRouter.createCaller>;
 
@@ -13,10 +14,18 @@ const getCaller = () => {
   if (!caller) {
     caller = appRouter.createCaller(
       createTRPCContext({
-        // Await this if async
         // @ts-expect-error - this is a hack to get the types to work
         req: {
           headers: headers()
+        },
+        integrations: {
+          shopify: {
+            client: new integrations.shopify.client(
+              env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+              env.SHOPIFY_STORE_DOMAIN,
+              '2023-10'
+            )
+          }
         }
       })
     );

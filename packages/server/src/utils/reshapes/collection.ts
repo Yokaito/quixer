@@ -1,17 +1,21 @@
-import { Collection, ShopifyCollection } from '../types';
+import { Collection, CollectionReshaped } from "../types/collection";
 
-export const reshapeCollection = (collection: ShopifyCollection): Collection | undefined => {
+export const reshapeCollection = (
+  collection: Collection
+): CollectionReshaped | undefined => {
   if (!collection) {
     return undefined;
   }
 
   return {
     ...collection,
-    path: `/search/${collection.handle}`
+    path: `/search/${collection.handle}`,
   };
 };
 
-export const reshapeCollections = (collections: ShopifyCollection[]): Collection[] => {
+export const reshapeCollections = (
+  collections: Collection[]
+): CollectionReshaped[] => {
   const reshapedCollections = [];
 
   for (const collection of collections) {
