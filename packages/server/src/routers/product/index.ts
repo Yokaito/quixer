@@ -4,11 +4,12 @@ import {
   ShopifyProductOperation,
   getProductQuery,
 } from "../../integrations/shopify/queries/product";
-import { createTRPCRouter, publicProcedure } from "../../trpc";
+import { validatedProcedure } from "../../middlewares/validateContext";
+import { createTRPCRouter } from "../../trpc";
 import { reshapeProduct } from "../../utils/reshapes";
 
 export const productRouter = createTRPCRouter({
-  getProductByHandle: publicProcedure
+  getProductByHandle: validatedProcedure
     .input(
       z.object({
         handle: z.string(),

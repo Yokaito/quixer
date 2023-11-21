@@ -1,3 +1,5 @@
+import { TRPCError } from "@trpc/server";
+import { z } from "zod";
 import { ensureStartsWith } from "../../utils";
 import type { ExtractVariables } from "../../utils/types";
 import { isShopifyError } from "./type-guards";
@@ -22,12 +24,35 @@ type ShopifyResponse<T> = {
   body: T;
 };
 
+const schemaShopifyClient = z.object({
+  key: z.string(),
+  endpoint: z.string().regex(/^[a-z0-9-]+\.myshopify\.com$/),
+  version: z.nativeEnum(versions),
+});
+
 export class ShopifyClient {
   constructor(
     private readonly key: string,
     private readonly endpoint: string,
     private readonly version: keyof typeof versions = "2023-01"
-  ) {}
+  ) {
+    const isShopifyClient = schemaShopifyClient.safeParse({
+      key,
+      endpoint,
+      version,
+    });
+
+    if (!isShopifyClient.success) {
+      throw new TRPCError({
+        code: "INTERNAL_SERVER_ERROR",
+        message: isShopifyClient.error.message,
+      });
+    }
+
+    this.key = isShopifyClient.data.key;
+    this.endpoint = isShopifyClient.data.endpoint;
+    this.version = isShopifyClient.data.version;
+  }
 
   fetch = async <T>({
     cache = "force-cache",
