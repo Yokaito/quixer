@@ -10,11 +10,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Yokaito/quixer",
-    "directory": "packages/server"
+    "directory": "packages/sdk"
   },
   "files": [
-    "dist/**"
+    "dist"
   ],
+  "type": "module",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
