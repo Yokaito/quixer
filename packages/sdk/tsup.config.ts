@@ -6,6 +6,7 @@ export const tsup = defineConfig((options: Options) => ({
   format: ["esm", "cjs"],
   outDir: "dist",
   dts: true,
+  sourcemap: true,
   clean: true,
   splitting: true,
   minify: true,

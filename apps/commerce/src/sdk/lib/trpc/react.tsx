@@ -6,10 +6,10 @@ import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import { useMemo } from 'react';
 
-import { type AppRouter } from '@quixer/server';
+import { appRouter } from '@quixer/sdk';
 import { getUrl, transformer } from './shared';
 
-export const api = createTRPCReact<AppRouter>();
+export const api = createTRPCReact<typeof appRouter>();
 
 export function TRPCReactProvider(props: { children: React.ReactNode; headers: Headers }) {
   const queryClient = useMemo(

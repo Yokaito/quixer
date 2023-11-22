@@ -4,7 +4,7 @@ const nextConfig = {
     ppr: true
   },
   reactStrictMode: true,
-  transpilePackages: ['ui', '@quixer/server'],
+  transpilePackages: ['ui'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
