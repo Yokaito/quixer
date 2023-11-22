@@ -1,0 +1,54 @@
+{
+  "name": "@quixer/sdk",
+  "version": "0.0.7",
+  "description": "A lightweight, framework agnostic api to use in e-commerce",
+  "author": "Guilherme Fontes <gui.fontes.amorim@gmail.com> (@guifontes)",
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yokaito/quixer",
+    "directory": "packages/server"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.mjs",
+      "default": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./client": {
+      "import": "./dist/client.mjs",
+      "module": "./dist/client.mjs",
+      "default": "./dist/client.mjs",
+      "types": "./dist/client.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "devDependencies": {
+    "@trpc/next": "^10.43.6",
+    "@trpc/server": "^10.43.6",
+    "@types/node": "^20.9.4",
+    "eslint-config-custom": "workspace:*",
+    "next": "14.0.3-canary.9",
+    "server-only": "^0.0.1",
+    "superjson": "^2.2.1",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.0.1",
+    "typescript": "^5.2.2",
+    "zod": "^3.22.4"
+  },
+  "peerDependencies": {
+    "next": "^14.0.0"
+  }
+}
