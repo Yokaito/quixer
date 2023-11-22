@@ -16,20 +16,20 @@
     "dist"
   ],
   "type": "module",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "module": "./dist/index.mjs",
-      "default": "./dist/index.mjs",
+      "import": "./dist/index.js",
+      "module": "./dist/index.js",
+      "default": "./dist/index.js",
       "types": "./dist/index.d.ts"
     },
     "./client": {
-      "import": "./dist/client.mjs",
-      "module": "./dist/client.mjs",
-      "default": "./dist/client.mjs",
+      "import": "./dist/client.js",
+      "module": "./dist/client.js",
+      "default": "./dist/client.js",
       "types": "./dist/client.d.ts"
     }
   },
