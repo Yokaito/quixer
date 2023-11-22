@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.6](https://github.com/Yokaito/quixer/compare/v0.0.5...v0.0.6) (2023-11-21)
+
+### Chores
+
+- **commerce:** remove last files to shopify integration inside commerce ([477a246](https://github.com/Yokaito/quixer/commit/477a246fba7d07aa8c7a5e423d35c49a0b47a3d1))
+
 ## 0.0.5 (2023-11-21)
 
 ### Features
