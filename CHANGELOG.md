@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.11](https://github.com/Yokaito/quixer/compare/v0.0.10...v0.0.11) (2023-11-22)
+
+### Chores
+
+- change files and remove type module in sdk ([34db64d](https://github.com/Yokaito/quixer/commit/34db64d49245d9619cc66f8fd47c2fd45e405f4a))
+
 ## [0.0.10](https://github.com/Yokaito/quixer/compare/v0.0.9...v0.0.10) (2023-11-22)
 
 ### Chores
