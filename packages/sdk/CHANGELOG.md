@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.10](https://github.com/Yokaito/quixer/compare/v0.0.9...v0.0.10) (2023-11-22)
+
+### Chores
+
+- change files in exports package @quixer/sdk ([a9af98a](https://github.com/Yokaito/quixer/commit/a9af98ae9b031810bcc0e102ae462cae8a3575ed))
+
 ## [0.0.9](https://github.com/Yokaito/quixer/compare/v0.0.8...v0.0.9) (2023-11-22)
 
 ### Features
