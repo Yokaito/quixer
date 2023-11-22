@@ -6,6 +6,10 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
+    "build:packages": {
+      "dependsOn": ["@quixer/sdk#build"],
+      "outputs": ["dist/**"]
+    },
     "lint": {},
     "test": {},
     "start": {},
