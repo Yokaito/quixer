@@ -1,7 +1,7 @@
 import 'server-only'; // Make sure you can't import this on client
 
 import env from '@/sdk/env';
-import { appRouter, createTRPCContext, integrations } from '@quixer/sdk';
+import { appRouter, createTRPCContext, integrations } from '@quixer/server';
 import { headers } from 'next/headers';
 
 type Caller = ReturnType<typeof appRouter.createCaller>;
