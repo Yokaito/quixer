@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.9](https://github.com/Yokaito/quixer/compare/v0.0.8...v0.0.9) (2023-11-22)
+
+### Features
+
+- make dist go to npm packages ([9901bc4](https://github.com/Yokaito/quixer/commit/9901bc4d8a22f65173f503c4be9f43e2bae25119))
+
 ## [0.0.8](https://github.com/Yokaito/quixer/compare/v0.0.7...v0.0.8) (2023-11-22)
 
 ### Features
