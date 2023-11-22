@@ -1,6 +1,6 @@
 {
   "name": "@quixer/sdk",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A lightweight, framework agnostic api to use in e-commerce",
   "author": "Guilherme Fontes <gui.fontes.amorim@gmail.com> (@guifontes)",
   "publishConfig": {
