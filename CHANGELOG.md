@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.7](https://github.com/Yokaito/quixer/compare/v0.0.6...v0.0.7) (2023-11-22)
+
+### Bug Fixes
+
+- imports in commerce website server ([229429c](https://github.com/Yokaito/quixer/commit/229429c72eec0051ca6ffd2861ccef00f0662dd7))
+
 ## [0.0.6](https://github.com/Yokaito/quixer/compare/v0.0.5...v0.0.6) (2023-11-21)
 
 ### Chores

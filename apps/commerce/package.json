@@ -1,6 +1,6 @@
 {
   "name": "commerce",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": true,
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
     "*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@quixer/server": "workspace:*",
     "@t3-oss/env-nextjs": "^0.7.1",
     "@tanstack/react-query": "^4.36.1",
     "@tanstack/react-query-devtools": "^5.8.4",
@@ -35,7 +36,6 @@
     "next": "14.0.3-canary.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@quixer/server": "workspace:*",
     "server-only": "^0.0.1",
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.0.0",
