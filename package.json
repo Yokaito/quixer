@@ -11,12 +11,12 @@
     }
   },
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "start": "turbo run start",
-    "lhci": "turbo run lhci",
-    "lint": "turbo run lint",
-    "test": "turbo run test",
+    "build": "turbo run build --no-daemon",
+    "dev": "turbo run dev --parallel --no-cache --no-daemon",
+    "start": "turbo run start --no-daemon",
+    "lhci": "turbo run lhci --no-daemon",
+    "lint": "turbo run lint --no-daemon",
+    "test": "turbo run test --no-daemon",
     "release": "lerna version patch --yes && lerna publish from-git --yes",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "postinstall": "npx husky install"
