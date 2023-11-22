@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.13 (2023-11-22)
+
+### Chores
+
+- make release dont use cache in build stage ([08bb6ed](https://github.com/Yokaito/quixer/commit/08bb6ed84bdf252afcbaf20fe7cb4315c469d0a3))
+
 ## [0.0.12](https://github.com/Yokaito/quixer/compare/v0.0.11...v0.0.12) (2023-11-22)
 
 **Note:** Version bump only for package @quixer/sdk
