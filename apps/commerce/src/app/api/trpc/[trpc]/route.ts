@@ -1,7 +1,7 @@
 import env from '@/sdk/env';
+import { appRouter, createTRPCContext, integrations } from '@quixer/server';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
 import { type NextRequest } from 'next/server';
-import { appRouter, createTRPCContext, integrations } from 'server';
 
 const handler = (req: NextRequest) =>
   fetchRequestHandler({

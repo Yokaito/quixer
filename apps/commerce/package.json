@@ -35,7 +35,7 @@
     "next": "14.0.3-canary.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "server": "workspace:*",
+    "@quixer/server": "workspace:*",
     "server-only": "^0.0.1",
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.0.0",
