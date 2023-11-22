@@ -59,7 +59,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm build
+        run: pnpm build --force
 
       - name: Lint
         run: pnpm test
