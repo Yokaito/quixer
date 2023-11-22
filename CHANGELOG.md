@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.12](https://github.com/Yokaito/quixer/compare/v0.0.11...v0.0.12) (2023-11-22)
+
+### Chores
+
+- add output dist folder in turbo ([3f7272f](https://github.com/Yokaito/quixer/commit/3f7272f0720c9d99b6002a9e3cb643b354c49237))
+
 ## [0.0.11](https://github.com/Yokaito/quixer/compare/v0.0.10...v0.0.11) (2023-11-22)
 
 ### Chores
