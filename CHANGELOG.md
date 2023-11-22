@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.8](https://github.com/Yokaito/quixer/compare/v0.0.7...v0.0.8) (2023-11-22)
+
+### Features
+
+- make another package sdk using tsup to make router reliable ([4bdb2e3](https://github.com/Yokaito/quixer/commit/4bdb2e37e18dcd1541992da69522e6d9b09ac1a9))
+
 ## [0.0.7](https://github.com/Yokaito/quixer/compare/v0.0.6...v0.0.7) (2023-11-22)
 
 ### Bug Fixes
