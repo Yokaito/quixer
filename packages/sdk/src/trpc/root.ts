@@ -1,4 +1,4 @@
-import { productRouter } from "../routers/product";
+import { productRouter } from "@sdk/routers/product";
 import { createTRPCRouter, publicProcedure } from "./trpc";
 
 /**

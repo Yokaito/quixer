@@ -15,19 +15,19 @@
   "files": [
     "./dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "module": "./dist/index.js",
-      "default": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.mjs",
+      "default": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
     "./client": {
-      "import": "./dist/client.js",
-      "module": "./dist/client.js",
-      "default": "./dist/client.js",
+      "import": "./dist/client.mjs",
+      "module": "./dist/client.mjs",
+      "default": "./dist/client.mjs",
       "types": "./dist/client.d.ts"
     }
   },

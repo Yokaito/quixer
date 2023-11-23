@@ -1,7 +1,7 @@
+import { ensureStartsWith } from "@sdk/utils";
+import type { ExtractVariables } from "@sdk/utils/types";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { ensureStartsWith } from "../../utils";
-import type { ExtractVariables } from "../../utils/types";
 import { isShopifyError } from "./type-guards";
 
 const versions = {

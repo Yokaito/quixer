@@ -10,7 +10,7 @@ import { initTRPC } from "@trpc/server";
 import { type NextRequest } from "next/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
-import { ShopifyClient } from "../integrations/shopify";
+import { ShopifyClient } from "../integrations/clients/shopify";
 
 /**
  * 1. CONTEXT

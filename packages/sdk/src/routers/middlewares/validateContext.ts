@@ -1,7 +1,7 @@
+import { ShopifyClient } from "@sdk/integrations/clients/shopify";
+import { t } from "@sdk/trpc/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { ShopifyClient } from "../integrations/shopify";
-import { t } from "../trpc/trpc";
 
 const schemaShopify = z.object({
   integrations: z.object({

@@ -1,5 +1,5 @@
+import { Cart, CartReshaped } from "@sdk/utils/types/cart";
 import { removeEdgesAndNodes } from ".";
-import { Cart, CartReshaped } from "../types/cart";
 
 export const reshapeCart = (cart: Cart): CartReshaped => {
   if (!cart.cost?.totalTaxAmount) {
