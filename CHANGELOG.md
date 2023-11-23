@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.15 (2023-11-23)
+
+### Chores
+
+- change labeler area ([817edee](https://github.com/Yokaito/quixer/commit/817edee69f4aadb08ad83abb69a6bfd9f35cc72c))
+
 ## [0.0.14](https://github.com/Yokaito/quixer/compare/v0.0.13...v0.0.14) (2023-11-23)
 
 ### Features
