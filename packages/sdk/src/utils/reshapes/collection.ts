@@ -1,4 +1,4 @@
-import { Collection, CollectionReshaped } from "../types/collection";
+import { Collection, CollectionReshaped } from "@sdk/utils/types/collection";
 
 export const reshapeCollection = (
   collection: Collection

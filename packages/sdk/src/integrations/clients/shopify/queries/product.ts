@@ -1,4 +1,4 @@
-import { Product } from "../../../utils/types/product";
+import { Product } from "@sdk/utils/types/product";
 import { productFragment } from "../fragments";
 
 export type ShopifyProductOperation = {

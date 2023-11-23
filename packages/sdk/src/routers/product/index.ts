@@ -1,12 +1,12 @@
-import { TRPCError } from "@trpc/server";
-import { z } from "zod";
 import {
   ShopifyProductOperation,
   getProductQuery,
-} from "../../integrations/shopify/queries/product";
-import { validatedProcedure } from "../../middlewares/validateContext";
-import { createTRPCRouter } from "../../trpc/trpc";
-import { reshapeProduct } from "../../utils/reshapes";
+} from "@sdk/integrations/clients/shopify/queries/product";
+import { validatedProcedure } from "@sdk/routers/middlewares/validateContext";
+import { createTRPCRouter } from "@sdk/trpc/trpc";
+import { reshapeProduct } from "@sdk/utils/reshapes";
+import { TRPCError } from "@trpc/server";
+import { z } from "zod";
 
 export const productRouter = createTRPCRouter({
   getProductByHandle: validatedProcedure

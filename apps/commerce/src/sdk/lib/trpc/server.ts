@@ -1,7 +1,7 @@
 import 'server-only'; // Make sure you can't import this on client
 
 import env from '@/sdk/env';
-import { appRouter, createTRPCContext, integrations } from '@quixer/sdk';
+import { appRouter, clients, createTRPCContext } from '@quixer/sdk';
 import { headers } from 'next/headers';
 import { NextRequest } from 'next/server';
 
@@ -23,7 +23,7 @@ const getCaller = () => {
         req: req,
         integrations: {
           shopify: {
-            client: new integrations.shopify.client(
+            client: new clients.shopify.client(
               env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
               env.SHOPIFY_STORE_DOMAIN,
               '2023-10'

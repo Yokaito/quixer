@@ -1,4 +1,4 @@
-import { Product, ProductReshaped } from "../types/product";
+import { Product, ProductReshaped } from "@sdk/utils/types/product";
 import { removeEdgesAndNodes } from "./edges";
 import { reshapeImages } from "./image";
 
