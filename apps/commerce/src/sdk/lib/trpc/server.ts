@@ -1,8 +1,9 @@
 import 'server-only'; // Make sure you can't import this on client
 
 import env from '@/sdk/env';
-import { appRouter, createTRPCContext, integrations } from '@quixer/server';
+import { appRouter, createTRPCContext, integrations } from '@quixer/sdk';
 import { headers } from 'next/headers';
+import { NextRequest } from 'next/server';
 
 type Caller = ReturnType<typeof appRouter.createCaller>;
 
@@ -11,13 +12,15 @@ let caller: Caller | null = null;
 // Cache the caller, since this runs per-request anyways.
 const getCaller = () => {
   // This fn should be async if create context is async
+
   if (!caller) {
+    const req = {
+      headers: headers()
+    } as NextRequest;
+
     caller = appRouter.createCaller(
       createTRPCContext({
-        // @ts-expect-error - this is a hack to get the types to work
-        req: {
-          headers: headers()
-        },
+        req: req,
         integrations: {
           shopify: {
             client: new integrations.shopify.client(

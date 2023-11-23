@@ -13,7 +13,6 @@
   "scripts": {
     "build": "turbo run build --no-daemon",
     "dev": "turbo run dev --parallel --no-cache --no-daemon",
-    "build:packages": "turbo run build:packages --no-daemon",
     "start": "turbo run start --no-daemon",
     "lhci": "turbo run lhci --no-daemon",
     "lint": "turbo run lint --no-daemon",

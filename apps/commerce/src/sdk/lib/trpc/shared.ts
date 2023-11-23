@@ -1,7 +1,7 @@
 import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server';
 import superjson from 'superjson';
 
-import { appRouter } from '@quixer/server';
+import { appRouter } from '@quixer/sdk';
 
 export const transformer = superjson;
 

@@ -7,7 +7,7 @@ export const tsup = defineConfig((options: Options) => ({
   outDir: "dist",
   dts: true,
   sourcemap: true,
-  clean: true,
+  clean: false,
   splitting: true,
   minify: true,
   ...options,

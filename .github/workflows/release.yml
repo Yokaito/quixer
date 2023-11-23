@@ -59,7 +59,7 @@ jobs:
         run: pnpm install
 
       - name: Build
-        run: pnpm build:packages
+        run: pnpm build --filter=sdk
 
       - name: Lint
         run: pnpm test

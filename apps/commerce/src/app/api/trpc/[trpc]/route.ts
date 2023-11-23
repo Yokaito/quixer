@@ -1,5 +1,5 @@
 import env from '@/sdk/env';
-import { appRouter, createTRPCContext, integrations } from '@quixer/server';
+import { appRouter, createTRPCContext, integrations } from '@quixer/sdk';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
 import { type NextRequest } from 'next/server';
 
