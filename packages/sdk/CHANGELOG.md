@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.14](https://github.com/Yokaito/quixer/compare/v0.0.13...v0.0.14) (2023-11-23)
+
+### Features
+
+- make package work with nextjs ([ceeffd0](https://github.com/Yokaito/quixer/commit/ceeffd0e62bb7016298db2321fd1fe871cdae125))
+
 ## 0.0.13 (2023-11-22)
 
 ### Chores
