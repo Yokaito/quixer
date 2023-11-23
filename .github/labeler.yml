@@ -6,4 +6,4 @@
   - any: ["packages/ui/**/*"]
 
 "Area: Packages Server":
-  - any: ["packages/server/**/*"]
+  - any: ["packages/sdk/**/*"]
