@@ -1,8 +1,8 @@
 import 'server-only'; // Make sure you can't import this on client
 
-import env from '@/sdk/env';
-import { appRouter, clients, createTRPCContext } from '@quixer/sdk';
-import { headers } from 'next/headers';
+import { config } from '@config';
+import { appRouter, createTRPCContext } from '@quixer/sdk/shopify';
+import { cookies, headers } from 'next/headers';
 import { NextRequest } from 'next/server';
 
 type Caller = ReturnType<typeof appRouter.createCaller>;
@@ -15,28 +15,22 @@ const getCaller = () => {
 
   if (!caller) {
     const req = {
-      headers: headers()
+      headers: headers(),
+      // TODO - Fix this type in router is normal NextRequest
+      cookies: cookies() as any
     } as NextRequest;
 
     caller = appRouter.createCaller(
       createTRPCContext({
         req: req,
-        integrations: {
-          shopify: {
-            client: new clients.shopify.client(
-              env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
-              env.SHOPIFY_STORE_DOMAIN,
-              '2023-10'
-            )
-          }
-        }
+        configuration: config.platform
       })
     );
   }
   return caller;
 };
 
-// @ts-expect-error - this is a hack to get the implementation to work async
+// @ts-ignore - this is a hack to get the types to work
 const routeOrCallProxy = (path: (string | symbol)[]) => {
   return new Proxy<Function>( // We use a fn type because it tricks webpack into letting this actually run
     getCaller, // Any function will do, since we override apply

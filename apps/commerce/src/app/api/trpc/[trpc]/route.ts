@@ -1,5 +1,6 @@
 import env from '@/sdk/env';
-import { appRouter, clients, createTRPCContext } from '@quixer/sdk';
+import { config } from '@config';
+import { appRouter, createTRPCContext } from '@quixer/sdk/shopify';
 import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
 import { type NextRequest } from 'next/server';
 
@@ -11,14 +12,7 @@ const handler = (req: NextRequest) =>
     createContext: () =>
       createTRPCContext({
         req,
-        integrations: {
-          shopify: {
-            client: new clients.shopify.client(
-              env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
-              `${env.SHOPIFY_STORE_DOMAIN}`
-            )
-          }
-        }
+        configuration: config.platform
       }),
     onError:
       env.NODE_ENV === 'development'

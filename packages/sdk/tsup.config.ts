@@ -2,7 +2,7 @@ import { defineConfig, Options } from "tsup";
 
 export const tsup = defineConfig((options: Options) => ({
   name: "server",
-  entry: ["src/index.ts", "src/client.ts"],
+  entry: ["src/index.ts", "src/clients/shopify/index.ts"],
   format: ["esm"],
   outDir: "dist",
   dts: true,

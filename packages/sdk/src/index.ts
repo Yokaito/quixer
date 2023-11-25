@@ -1,11 +1,3 @@
-import { ShopifyClient } from "@sdk/integrations/clients/shopify";
-import { appRouter } from "@sdk/trpc/root";
-import { createTRPCContext } from "@sdk/trpc/trpc";
+import { defineConfig } from "./utils/defineConfig";
 
-const clients = {
-  shopify: {
-    client: ShopifyClient,
-  },
-};
-
-export { appRouter, clients, createTRPCContext };
+export { defineConfig };

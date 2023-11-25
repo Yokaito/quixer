@@ -1,5 +1,5 @@
-import { productRouter } from "@sdk/routers/product";
-import { createTRPCRouter, publicProcedure } from "./trpc";
+import { createTRPCRouter, publicProcedure } from "../trpc/trpc";
+import { productRouter } from "./product";
 
 /**
  * This is the primary router for your server.

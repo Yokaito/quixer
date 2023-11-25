@@ -6,7 +6,7 @@ import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import { useMemo } from 'react';
 
-import { appRouter } from '@quixer/sdk';
+import { appRouter } from '@quixer/sdk/shopify';
 import { getUrl, transformer } from './shared';
 
 export const api = createTRPCReact<typeof appRouter>();
