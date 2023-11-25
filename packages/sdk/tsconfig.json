@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@sdk/*": ["src/*"]
+      "@sdk/*": ["src/*"],
+      "@shopify/*": ["src/clients/shopify/*"]
     }
   },
   "include": ["."],

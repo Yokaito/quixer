@@ -1,15 +1,11 @@
 import { ensureStartsWith } from "@sdk/utils";
 import type { ExtractVariables } from "@sdk/utils/types";
 import { TRPCError } from "@trpc/server";
-import { z } from "zod";
+import {
+  ShopifyConfiguration,
+  ShopifyConfigurationSchema,
+} from "../configuration";
 import { isShopifyError } from "./type-guards";
-
-const versions = {
-  "2023-10": "2023-10",
-  "2023-07": "2023-07",
-  "2023-04": "2023-04",
-  "2023-01": "2023-01",
-} as const;
 
 type ShopifyFetch<T> = {
   cache?: RequestCache;
@@ -24,34 +20,18 @@ type ShopifyResponse<T> = {
   body: T;
 };
 
-const schemaShopifyClient = z.object({
-  key: z.string(),
-  endpoint: z.string().regex(/^[a-z0-9-]+\.myshopify\.com$/),
-  version: z.nativeEnum(versions),
-});
-
 export class ShopifyClient {
-  constructor(
-    private readonly key: string,
-    private readonly endpoint: string,
-    private readonly version: keyof typeof versions = "2023-01"
-  ) {
-    const isShopifyClient = schemaShopifyClient.safeParse({
-      key,
-      endpoint,
-      version,
-    });
+  constructor(private readonly config: ShopifyConfiguration) {
+    const safeConfig = ShopifyConfigurationSchema.safeParse(config);
 
-    if (!isShopifyClient.success) {
+    if (!safeConfig.success) {
       throw new TRPCError({
         code: "INTERNAL_SERVER_ERROR",
-        message: isShopifyClient.error.message,
+        message: safeConfig.error.message,
       });
     }
 
-    this.key = isShopifyClient.data.key;
-    this.endpoint = isShopifyClient.data.endpoint;
-    this.version = isShopifyClient.data.version;
+    this.config = safeConfig.data;
   }
 
   fetch = async <T>({
@@ -61,16 +41,17 @@ export class ShopifyClient {
     tags,
     variables,
   }: ShopifyFetch<T>): Promise<ShopifyResponse<T>> => {
-    const url = ensureStartsWith(this.endpoint, "https://");
-    const version = `/api/${versions[this.version]}/graphql.json`;
-    const endpoint = `${url}${version}`;
+    const { domain, tokens, version } = this.config;
+
+    const url = ensureStartsWith(domain, "https://");
+    const endpoint = `${url}/api/${version}/graphql.json`;
 
     try {
       const result = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Shopify-Storefront-Access-Token": this.key,
+          "X-Shopify-Storefront-Access-Token": tokens.storefront,
           ...headers,
         },
         body: JSON.stringify({
