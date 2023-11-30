@@ -13,7 +13,7 @@ export async function generateMetadata({
 }: {
   params: { handle: string };
 }): Promise<Metadata> {
-  const product = await api.product.getProductByHandle({
+  const product = await api.product.getByHandle({
     handle: params.handle
   });
 
@@ -49,7 +49,7 @@ export async function generateMetadata({
 }
 
 export default async function ProductPage({ params }: Props) {
-  const product = await api.product.getProductByHandle({
+  const product = await api.product.getByHandle({
     handle: params.handle
   });
 

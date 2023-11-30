@@ -1,4 +1,4 @@
-import { Cart, CartReshaped } from "@sdk/utils/types/cart";
+import { Cart, CartReshaped } from "@sdk/clients/shopify/types/cart";
 import { removeEdgesAndNodes } from ".";
 
 export const reshapeCart = (cart: Cart): CartReshaped => {
