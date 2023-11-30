@@ -35,6 +35,8 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint src/",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
@@ -47,6 +49,8 @@
     "tsconfig": "workspace:*",
     "tsup": "^6.0.1",
     "typescript": "^5.2.2",
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^0.34.6",
     "zod": "^3.22.4"
   },
   "peerDependencies": {

@@ -1,10 +1,14 @@
+import { reshapeProduct } from "@sdk/clients/shopify/reshapes";
+import type { ExtractVariables } from "@sdk/clients/shopify/types";
+import { ProductReshaped } from "@sdk/clients/shopify/types/product";
 import { ensureStartsWith } from "@sdk/utils";
-import type { ExtractVariables } from "@sdk/utils/types";
 import { TRPCError } from "@trpc/server";
 import {
   ShopifyConfiguration,
   ShopifyConfigurationSchema,
 } from "../configuration";
+import { TAGS } from "./constants";
+import { ShopifyProductOperation, getProductQuery } from "./queries/product";
 import { isShopifyError } from "./type-guards";
 
 type ShopifyFetch<T> = {
@@ -87,5 +91,21 @@ export class ShopifyClient {
         query,
       };
     }
+  };
+
+  getByHandle = async (
+    handle: string
+  ): Promise<ProductReshaped | undefined> => {
+    const result = await this.fetch<ShopifyProductOperation>({
+      query: getProductQuery,
+      tags: [TAGS.products],
+      variables: {
+        handle,
+      },
+    });
+
+    const product = reshapeProduct(result.body.data.product, false);
+
+    return product;
   };
 }

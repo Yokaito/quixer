@@ -1,5 +1,5 @@
-import { Connection } from "@sdk/utils/types";
-import { Image } from "@sdk/utils/types/image";
+import { Connection } from "@sdk/clients/shopify/types";
+import { Image } from "@sdk/clients/shopify/types/image";
 import { removeEdgesAndNodes } from ".";
 
 export const reshapeImages = (

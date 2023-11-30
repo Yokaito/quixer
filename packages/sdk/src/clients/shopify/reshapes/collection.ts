@@ -1,4 +1,7 @@
-import { Collection, CollectionReshaped } from "@sdk/utils/types/collection";
+import {
+  Collection,
+  CollectionReshaped,
+} from "@sdk/clients/shopify/types/collection";
 
 export const reshapeCollection = (
   collection: Collection
