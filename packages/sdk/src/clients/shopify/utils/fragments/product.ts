@@ -1,4 +1,5 @@
 import { imageFragment } from "./image";
+import { metafieldFragment } from "./metafield";
 import { seoFragment } from "./seo";
 
 export const productFragment = /* GraphQL */ `
@@ -44,12 +45,15 @@ export const productFragment = /* GraphQL */ `
     featuredImage {
       ...image
     }
-    images(first: 20) {
+    images(first: 20, sortKey: POSITION) {
       edges {
         node {
           ...image
         }
       }
+    }
+    metafields(identifiers: $identifiers) {
+      ...metafield
     }
     seo {
       ...seo
@@ -59,4 +63,5 @@ export const productFragment = /* GraphQL */ `
   }
   ${imageFragment}
   ${seoFragment}
+  ${metafieldFragment}
 `;

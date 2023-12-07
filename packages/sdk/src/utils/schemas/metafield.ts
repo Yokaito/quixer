@@ -59,6 +59,12 @@ export const MetafieldUnionSchema = z.union([
     .merge(MetafieldSchema),
   z
     .object({
+      type: z.literal("single_line_text_field"),
+      value: z.string(),
+    })
+    .merge(MetafieldSchema),
+  z
+    .object({
       type: z.literal("multi_line_text_field"),
       value: z.string(),
     })

@@ -1,5 +1,6 @@
 import { Connection } from ".";
 import { Image } from "./image";
+import { Metafield } from "./metafield";
 import { Money } from "./money";
 import { SEO } from "./seo";
 
@@ -41,6 +42,7 @@ export type Product = {
   featuredImage: Image;
   images: Connection<Image>;
   seo: SEO;
+  metafields: Metafield[];
   tags: string[];
   updatedAt: string;
 };

@@ -1,6 +1,6 @@
 export const imageFragment = /* GraphQL */ `
   fragment image on Image {
-    url
+    url(transform: { preferredContentType: WEBP })
     altText
     width
     height
