@@ -2,11 +2,12 @@ import {
   ShopifyConfiguration,
   ShopifyConfigurationSchema,
 } from "@sdk/clients/shopify/configuration";
-import { NextRequest } from "next/server";
 import { createInnerTRPCContext } from "./context.inner";
 
 interface TRPCContextProps {
-  req: NextRequest;
+  req: {
+    headers: Headers;
+  };
   configuration: ShopifyConfiguration;
 }
 
@@ -23,8 +24,7 @@ export const createTRPCContext = (opts: TRPCContextProps) => {
   );
 
   return createInnerTRPCContext({
-    headers: opts.req.headers,
-    cookies: opts.req.cookies,
+    req: opts.req,
     configuration: safeConfiguration,
   });
 };

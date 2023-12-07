@@ -13,8 +13,9 @@ describe("Shopify Routers", () => {
   });
 
   const ctx = createInnerTRPCContext({
-    headers: new Headers(),
-    cookies: {} as any,
+    req: {
+      headers: new Headers(),
+    },
     configuration: {
       domain: "test.myshopify.com",
       platform: "shopify",
