@@ -1,5 +1,4 @@
 import { ShopifyConfiguration } from "@sdk/clients/shopify/configuration";
-import { RequestCookies } from "next/dist/compiled/@edge-runtime/cookies";
 import { ShopifyClient } from "../utils";
 
 /**
@@ -11,15 +10,15 @@ import { ShopifyClient } from "../utils";
  */
 
 export interface InnerTRPCContextProps {
-  headers: Headers;
-  cookies: RequestCookies;
+  req: {
+    headers: Headers;
+  };
   configuration: ShopifyConfiguration;
 }
 
 export interface InnerTRPCContextResponse {
   req: {
     headers: Headers;
-    cookies: RequestCookies;
   };
   client: ShopifyClient;
   configuration: ShopifyConfiguration;
@@ -40,8 +39,7 @@ export const createInnerTRPCContext = (
 ): InnerTRPCContextResponse => {
   return {
     req: {
-      headers: opts.headers,
-      cookies: opts.cookies,
+      headers: opts.req.headers,
     },
     client: new ShopifyClient(opts.configuration),
     configuration: opts.configuration,
