@@ -94,13 +94,15 @@ export class ShopifyClient {
   };
 
   getByHandle = async (
-    handle: string
+    handle: string,
+    identifiers: { key: string; namespace: string }[]
   ): Promise<ProductReshaped | undefined> => {
     const result = await this.fetch<ShopifyProductOperation>({
       query: getProductQuery,
       tags: [TAGS.products],
       variables: {
         handle,
+        identifiers: identifiers,
       },
     });
 

@@ -1,25 +1,25 @@
 import { createTRPCRouter, publicProcedure } from "@shopify/trpc/trpc";
-import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+
+const ProductSchemaInput = z.object({
+  handle: z.string(),
+  identifiers: z
+    .array(
+      z.object({
+        key: z.string(),
+        namespace: z.string().default("custom"),
+      })
+    )
+    .default([]),
+});
 
 export const productRouter = createTRPCRouter({
   getByHandle: publicProcedure
-    .input(
-      z.object({
-        handle: z.string(),
-      })
-    )
+    .input(ProductSchemaInput)
     .query(async ({ ctx, input }) => {
       const { client } = ctx;
 
-      const product = await client.getByHandle(input.handle);
-
-      if (!product) {
-        throw new TRPCError({
-          code: "NOT_FOUND",
-          message: "Product not found",
-        });
-      }
+      const product = await client.getByHandle(input.handle, input.identifiers);
 
       return product;
     }),

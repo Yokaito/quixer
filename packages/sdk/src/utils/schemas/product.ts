@@ -5,9 +5,7 @@ import { PriceRangeSchema } from "./price";
 import { SeoSchema } from "./seo";
 
 const ProductSchema = z.object({
-  createdAt: z.string(),
   descriptionHtml: z.string(),
-  isGiftCard: z.boolean(),
   images: z.array(ImageSchema),
   id: z.string(),
   handle: z.string(),
@@ -17,6 +15,7 @@ const ProductSchema = z.object({
   updatedAt: z.string(),
   priceRange: PriceRangeSchema,
   metafields: z.array(MetafieldUnionSchema),
+  availableForSale: z.boolean(),
 });
 
 export const QuixerProductSchema = ProductSchema.extend({
