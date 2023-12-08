@@ -2,6 +2,7 @@ import { appRouter } from "@sdk/clients/shopify";
 import { createInnerTRPCContext } from "@sdk/clients/shopify/trpc/context.inner";
 import { QuixerProductSchema } from "@sdk/utils/schemas/product";
 import { beforeEach, describe, expect, test, vi } from "vitest";
+
 import {
   productShopifyMock,
   productShopifyMockWithMetafields,
@@ -14,7 +15,7 @@ describe("Shopify Routers", () => {
 
   const ctx = createInnerTRPCContext({
     req: {
-      headers: new Headers(),
+      headers: {} as any,
     },
     configuration: {
       domain: "test.myshopify.com",
