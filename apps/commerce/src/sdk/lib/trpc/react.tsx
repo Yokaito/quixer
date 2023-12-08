@@ -6,7 +6,8 @@ import { loggerLink, unstable_httpBatchStreamLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import { useMemo } from 'react';
 
-import { appRouter } from '@quixer/sdk';
+import env from '@/sdk/env';
+import { appRouter } from '@quixer/sdk/shopify';
 import { getUrl, transformer } from './shared';
 
 export const api = createTRPCReact<typeof appRouter>();
@@ -27,7 +28,7 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers: H
         links: [
           loggerLink({
             enabled: (op) =>
-              process.env.NODE_ENV === 'development' ||
+              env.NODE_ENV === 'development' ||
               (op.direction === 'down' && op.result instanceof Error)
           }),
           unstable_httpBatchStreamLink({
@@ -44,10 +45,10 @@ export function TRPCReactProvider(props: { children: React.ReactNode; headers: H
   );
 
   return (
-    <api.Provider client={trpcClient} queryClient={queryClient}>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <api.Provider client={trpcClient} queryClient={queryClient}>
         {props.children} <ReactQueryDevtools />
-      </QueryClientProvider>
-    </api.Provider>
+      </api.Provider>
+    </QueryClientProvider>
   );
 }

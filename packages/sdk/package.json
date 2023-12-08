@@ -15,26 +15,28 @@
   "files": [
     "./dist"
   ],
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "module": "./dist/index.js",
-      "default": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.mjs",
+      "default": "./dist/index.mjs",
       "types": "./dist/index.d.ts"
     },
-    "./client": {
-      "import": "./dist/client.js",
-      "module": "./dist/client.js",
-      "default": "./dist/client.js",
-      "types": "./dist/client.d.ts"
+    "./shopify": {
+      "import": "./dist/clients/shopify/index.mjs",
+      "module": "./dist/clients/shopify/index.mjs",
+      "default": "./dist/clients/shopify/index.mjs",
+      "types": "./dist/clients/shopify/index.d.ts"
     }
   },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint src/",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
@@ -47,6 +49,8 @@
     "tsconfig": "workspace:*",
     "tsup": "^6.0.1",
     "typescript": "^5.2.2",
+    "vite-tsconfig-paths": "^4.2.1",
+    "vitest": "^0.34.6",
     "zod": "^3.22.4"
   },
   "peerDependencies": {

@@ -1,6 +1,12 @@
 {
   "extends": "tsconfig/base.json",
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@sdk/*": ["src/*"],
+      "@shopify/*": ["src/clients/shopify/*"]
+    }
+  },
   "include": ["."],
   "exclude": ["node_modules"]
 }
