@@ -1,6 +1,7 @@
 import { api } from '@/sdk/lib/trpc/server';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import type { BreadcrumbList, Product, WithContext } from 'schema-dts';
 
 interface Props {
   params: {
@@ -55,7 +56,7 @@ export default async function ProductPage({ params }: Props) {
 
   if (!product) return notFound();
 
-  const productJsonLd = {
+  const productJsonLd: WithContext<Product> = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.title,
@@ -72,12 +73,37 @@ export default async function ProductPage({ params }: Props) {
     }
   };
 
+  const breadcrumbList: WithContext<BreadcrumbList> = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'http://localhost:3000'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: product.title,
+        item: `http://localhost:3000/product/${product.handle}`
+      }
+    ]
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(productJsonLd)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbList)
         }}
       />
       <div className="container flex flex-col gap-6">
