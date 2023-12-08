@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.16 (2023-12-08)
+
+### Chores
+
+- update pnpm lock to remove error in actions ([cc6585e](https://github.com/Yokaito/quixer/commit/cc6585ec380af3e2490095cd6298018c812c812b))
+
 ## 0.0.15 (2023-11-23)
 
 ### Chores
