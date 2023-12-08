@@ -1,3 +1,4 @@
+import Layout from '@/components/common/Layout';
 import { TRPCReactProvider } from '@/sdk/lib/trpc/react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -29,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <Suspense>
           <TRPCReactProvider headers={headers()}>
-            <main>{children}</main>
+            <Layout>{children}</Layout>
           </TRPCReactProvider>
         </Suspense>
       </body>
