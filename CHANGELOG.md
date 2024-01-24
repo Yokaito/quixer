@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.17 (2024-01-24)
+
+### Chores
+
+- update next version in sdk and commerce ([a89796d](https://github.com/Yokaito/quixer/commit/a89796d5769fb4bcad4a86564d6bb67a821b4949))
+- upgrade version in release node ([a7c20d3](https://github.com/Yokaito/quixer/commit/a7c20d3a32e2849517e47a7d6d0b9044271ea3d8))
+
 ## 0.0.16 (2023-12-08)
 
 ### Chores
