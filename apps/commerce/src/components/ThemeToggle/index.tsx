@@ -1,13 +1,18 @@
 'use client';
 
 import { useColorScheme } from '@/sdk/hooks/useColorScheme';
+import { MoonStar, Sun } from 'lucide-react';
 
 export const ThemeToggle = () => {
   const { toggle } = useColorScheme();
 
   return (
-    <button type="button" onClick={toggle} className="text-amber-600 dark:text-blue-700">
-      toggle
-    </button>
+    <div className="flex w-max flex-col justify-center">
+      <button className="cursor-pointer p-2" onClick={() => toggle()}>
+        <MoonStar className="dark:hidden" />
+        <Sun className="hidden dark:block" />
+        <span className="sr-only">Switch to light / dark version</span>
+      </button>
+    </div>
   );
 };

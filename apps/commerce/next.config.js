@@ -4,7 +4,7 @@ const nextConfig = {
     ppr: true
   },
   reactStrictMode: true,
-  transpilePackages: ['ui'],
+  transpilePackages: ['ui', 'lucide-react'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
