@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    ppr: true
-  },
   reactStrictMode: true,
-  transpilePackages: ['ui'],
+  transpilePackages: ['ui', 'lucide-react'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

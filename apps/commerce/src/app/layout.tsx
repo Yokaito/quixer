@@ -1,4 +1,6 @@
+import { Layout } from '@/layout';
 import { TRPCReactProvider } from '@/sdk/lib/trpc/react';
+import { isDarkTheme } from '@/sdk/utils/theme';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { headers } from 'next/headers';
@@ -25,11 +27,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR" className={isDarkTheme()}>
       <body className={inter.className}>
         <Suspense>
           <TRPCReactProvider headers={headers()}>
-            <main>{children}</main>
+            <Layout>{children}</Layout>
           </TRPCReactProvider>
         </Suspense>
       </body>
