@@ -5,4 +5,5 @@
 body {
   @apply text-zinc-900 dark:text-white;
   @apply bg-white dark:bg-zinc-900;
+  @apply transition-colors duration-500;
 }

@@ -11,7 +11,9 @@ export const ThemeToggle = () => {
       <button className="cursor-pointer p-2" onClick={() => toggle()}>
         <MoonStar className="dark:hidden" />
         <Sun className="hidden dark:block" />
-        <span className="sr-only">Switch to light / dark version</span>
+        <span aria-label="Switch to light / dark version" className="sr-only">
+          Switch to light / dark version
+        </span>
       </button>
     </div>
   );

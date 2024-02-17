@@ -9,7 +9,11 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     container: {
-      center: true
+      center: true,
+      padding: {
+        DEFAULT: '.75rem',
+        md: '1rem'
+      }
     },
     extend: {
       backgroundImage: {
